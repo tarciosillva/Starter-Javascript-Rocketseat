@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercio2 | Modulo2</title>
+    </head>
+    <body>
+        <button id="button">Novo</button>
+        <div id="box"></div>
+
+        <script>
+
+            var buttonElement = document.getElementById('button')
+            var boxElement = document.getElementById('box')
+
+            buttonElement.onclick = function () {
+                var container = document.createElement('div')
+                console.log(container)
+
+                container.style.width = '100px';
+                container.style.height = '100px';
+                container.style.backgroundColor = '#f00';
+
+                container.onmouseover = function () {
+                    container.style.backgroundColor = getRandomColor()
+                }
+
+                boxElement.appendChild(container)
+
+            }
+
+            function getRandomColor() {
+                console.log("teste")
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        </script>
+    </body>
+</html>

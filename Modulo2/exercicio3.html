@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercio3 | Modulo2</title>
+    </head>
+    <body>
+        <div class="names"></div>
+        <script>
+            var nomes = ["Diego", "Gabriel", "Lucas"]
+
+            function preenche(names) {
+
+                var names = document.createElement('ul')
+                var list1 = document.createElement('li')
+                var list2 = document.createElement('li')
+                var list3 = document.createElement('li')
+
+                names.appendChild(list1)
+                names.appendChild(list2)
+                names.appendChild(list3)
+
+                var textlist = document.createTextNode(nomes[0])
+                list1.appendChild(textlist)
+                textlist = document.createTextNode(nomes[1])
+                list2.appendChild(textlist)
+                textlist = document.createTextNode(nomes[2])
+                list3.appendChild(textlist)
+
+                var containnerElement = document.querySelector('.names')
+                containnerElement.appendChild(names)
+            }
+
+            preenche()
+        </script>
+    </body>
+</html>

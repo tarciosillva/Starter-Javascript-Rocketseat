@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 4 | Modulo 1</title>
+    </head>
+    <body>
+        <script>
+            //Execício 4
+            function experience(years) {
+                if (years <= 1) {
+                    return "Iniciante"
+                } else if (years > 1 && years <= 3) {
+                    return "Intermediário"
+                } else if (years > 2 && years <= 6) {
+                    return "Avançado"
+                } else if (years > 6) {
+                    return "Jedi Master"
+                }
+            }
+            var yearsEstudy = 1
+            console.log(experience(yearsEstudy))
+        </script>
+    </body>
+</html>

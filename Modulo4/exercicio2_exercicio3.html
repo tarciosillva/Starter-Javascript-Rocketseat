@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicio 2/Exercicio 3 | Modulo 4</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <div class="repositorios">
+            <input type="text" name="user">
+            <button onclick="buscaRepositorios()">Adicionar</button>
+
+            <ul></ul>
+
+        </div>
+        <script>
+            function exibeRepositorios(repositories) {
+                var listElement = document.querySelector('ul');
+                listElement.innerHTML = ""
+
+                for (repo of repositories) {
+                    const textElement = document.createTextNode(repo.name);
+                    const liElement = document.createElement('li');
+
+                    liElement.appendChild(textElement);
+                    listElement.appendChild(liElement);
+                }
+            }
+
+            function renderloading(loading) {
+                var listElement = document.querySelector('ul');
+                listElement.innerHTML = ""
+
+                var textElement = document.createTextNode('Carregando...')
+                var loadingElement = document.createElement('li')
+
+                loadingElement.appendChild(textElement)
+                listElement.appendChild(loadingElement)
+
+            }
+
+            /* Falta Corrigir
+            function rendererror(loading) {
+                var listElement = document.querySelector('ul');
+                listElement.innerHTML = ""
+
+                var textElement = document.createTextNode('Erro!');
+                var errorElement = document.createElement('li');
+
+                errorElement.style.color = "#F00";
+
+                errorElement.appendChild(textElement);
+                listElement.appendChild(errorElement);
+
+            }
+            */
+
+
+            function buscaRepositorios() {
+                var inputElement = document.querySelector('input');
+                var user = inputElement.value
+
+                if (!user) 
+                    return
+
+                renderloading()
+
+                axios
+                    .get('https://api.github.com/users/' + user + '/repos')
+                    .then(function (response) {
+                        exibeRepositorios(response.data)
+                    })
+                    .catch(function (error) {
+                        rendererror
+                    })
+                }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercio4 | Modulo2</title>
+    </head>
+    <body>
+        <ul id="listnames"></ul>
+        <input type="text" name="nameUser">
+
+        <button onclick="adicionar()">Adicionar</button>
+
+        <script>
+            function adicionar() {
+                var input = document.querySelector('input[name=nameUser]')
+
+                var text = input.value
+
+                var name = document.querySelector('#listnames')
+                var list = document.createElement('li')
+
+                input.value = ""
+
+                name.appendChild(list)
+
+                var textName = document.createTextNode(text)
+                list.appendChild(textName)
+
+                var containerElement = document.querySelector('.names')
+                containerElement.appendChild(name)
+
+            }
+        </script>
+    </body>
+</html>
